@@ -1,5 +1,5 @@
 # Sample Cordova Project 
-Using Camera, Background Geolocation, Google Maps, and SQLite, and Materialize for style.
+Using the Camera, Background Geolocation, Google Maps, and SQLite, and Materialize for style.
 
 Targeting iOS and Android
 
@@ -9,6 +9,6 @@ Targeting iOS and Android
 - Run `cordova build`
 
 # Plugins
-Background Geolocation
-Google Maps
-SQLite
+Background Geolocation  
+Google Maps  
+SQLite  
