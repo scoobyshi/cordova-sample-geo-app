@@ -8,6 +8,13 @@ Targeting iOS and Android
 - Run `cordova prepare` (to install platforms)
 - Run `cordova build`
 
+# Run it on Android
+- Emulator `cordova emulate android`
+- Device `cordova run android --device`
+
+# Run it on iOS
+- Emulator `open -a Xcode platforms/ios`
+
 # Plugins
 Background Geolocation  
 Google Maps  
