@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width">
+    <script type="text/javascript" src="cordova.js"></script>
+    <style type="text/css">
+    #map_canvas { /* Must bigger size than 100x100 pixels */
+      width: 100%;
+      height: 500px;
+    }
+    button {
+      padding: .5em;
+      margin: .5em;
+    }
+    #myImage {
+      width: 50px;
+      height: 50px;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Options -->
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile">
+          <li><a id="map_button"><i class="material-icons left">location_on</i>Map</a></li>
+          <li><a data-target="modallocation" class="modal-trigger" id="loc_button">Location</a></li>
+          <li><a data-target="modalcustom" class="btn modal-trigger">Customize</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Modal Customize -->
+    <div id="modalcustom" class="modal">
+      <div class="modal-content">
+        <h6>Customize Map Pin Detail</h6>
+        <form id="sqlForm" onSubmit="return false;">
+          <div class="row">
+              <div class="input-field col s12">
+                <input required id="description" type="text" class="validate">
+                <label class="active" for="description">Description</label>
+              </div>
+          </div>
+          <div class="row">
+            <span class="col s12">
+              <img id="myImage" />
+              <button class="btn-floating waves-effect waves-light" id="pic_button">
+                <i class="material-icons">insert_photo</i>
+              </button>
+            </span>
+          </div>
+          <div class="row">
+            <span class="col s12">
+              <input disabled type="text" id="imagePath" class="hide">
+            </span>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button form="sqlForm" class="btn waves-effect waves-light" onclick="updateSql()" type="submit" name="action">
+          Save
+          <i class="material-icons right">save</i>
+        </button>
+        <button class="waves-effect waves-green btn-flat" onclick="clearPreferences()">Clear</button>
+        <a class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
+    <!-- Modal Location -->
+    <div id="modallocation" class="modal">
+      <div class="modal-content">
+        <h6>Your current location, based on the Background Geo Location Plugin</h6>
+        <div class="row">
+          <span class="col s6">Latitude:</span>
+          <span class="col s6" id="latitude"></span>
+        </div>
+        <div class="row">
+          <span class="col s6">Longitude:</span>
+          <span class="col s6" id="longitude"></span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn waves-effect waves-light" onclick="clickLocation()">Refresh</button>
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div id="map_canvas"></div>
+
+    <script type="text/javascript" src="js/lib/camera.js"></script>
+    <script type="text/javascript" src="js/lib/sqlite.js"></script>
+    <script type="text/javascript" src="js/lib/geo.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </body>
+</html>

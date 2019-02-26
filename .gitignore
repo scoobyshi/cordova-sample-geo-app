@@ -1,0 +1,19 @@
+# Mac
+.DS_Store
+
+# IDE
+.vscode
+
+# Node
+npm-debug.log
+/node_modules
+
+# Type Plugin
+typings
+
+# Cordova
+/platforms
+/plugins
+
+# res
+resources/signing
